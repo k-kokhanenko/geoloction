@@ -1,7 +1,6 @@
-// TODO: write your code here
-//import TimeLine from '../  ./TimeLine';
-import TimeLine from './TimeLine.js'
+import TimeLine from './TimeLine';
 
 document.addEventListener("DOMContentLoaded", () => {
 	const timeline = new TimeLine('timeline', 'timeline-input');
+	console.log(timeline);
 });
