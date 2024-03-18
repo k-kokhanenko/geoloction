@@ -50,6 +50,7 @@ export default class TimeLine {
 						this.addNewRecord();
 					}, function(err) {				
 						console.log(err);
+						/* eslint-disable no-unused-vars */
 						const modal = new ModalDialog(this.setNewGeoPositions.bind(this));
 					}.bind(this));
 				}
