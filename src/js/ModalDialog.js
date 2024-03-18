@@ -4,6 +4,7 @@ export default class ModalDialog {
 		coordinates = coordinates.replace(/\s+/g, '');
 
 		// Удаляем лишние скобки
+		/* eslint-disable no-useless-escape */
 		coordinates = coordinates.replace(/[\[\]']+/g,'');
 
 		// Определяем количество точек их должно быть две
@@ -12,10 +13,10 @@ export default class ModalDialog {
 			throw new Error('Incorrect input value.');
 		}
 
-		 return {
+		return {
 			lat:  pointCount[0],
 			long: pointCount[1]
-		  };
+		};
 	}
 
 	constructor(callback) {
@@ -24,6 +25,7 @@ export default class ModalDialog {
 		const modal = document.querySelector('dialog');
 		const closeModalBtn = document.getElementById('close-modal-btn');
 
+		/* eslint-disable no-unused-vars */
 		let isModalOpen = true;
 		modal.showModal();
 
