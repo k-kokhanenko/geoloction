@@ -39,21 +39,19 @@ export default class TimeLine {
 
 	onAddNewRecord(event) {		
 		if (event.keyCode === 13 || event.key === 'Enter') {
-			if (navigator.geolocation) {
-				if (this.lat != undefined && this.long != undefined) {
+			if (navigator.geolocation) {				
+				navigator.geolocation.getCurrentPosition(position => {
+					console.log('geolocation.getCurrentPosition');
+					console.log(position.coords);
+					const {latitude, longitude} = position.coords;
+					this.lat = latitude;
+					this.long = longitude;
 					this.addNewRecord();
-				} else {					
-					navigator.geolocation.getCurrentPosition(position => {
-						const {latitude, longitude} = position.coords;
-						this.lat = latitude;
-						this.long = longitude;
-						this.addNewRecord();
-					}, function(err) {				
-						console.log(err);
-						/* eslint-disable no-unused-vars */
-						const modal = new ModalDialog(this.setNewGeoPositions.bind(this));
-					}.bind(this));
-				}
+				}, function(err) {				
+					console.log(err);
+					/* eslint-disable no-unused-vars */
+					const modal = new ModalDialog(this.setNewGeoPositions.bind(this));
+				}.bind(this));			
 			} else {
 				alert('error');
 			}
