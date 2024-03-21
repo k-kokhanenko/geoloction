@@ -36,7 +36,7 @@ export default class ModalDialog {
 			if (callback) {
 				const coordinates = document.querySelector('.coordinates');
 				try {
-					const obj = this.checkCoordinates(coordinates.value);
+					const obj = ModalDialog.checkCoordinates(coordinates.value);
 					callback(obj.lat, obj.long);
 				} catch (error) {
 					alert(error);
